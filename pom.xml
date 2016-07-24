@@ -10,6 +10,7 @@
   <properties>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	<tycho-version>0.25.0</tycho-version>
+  	<repo-url>http://download.eclipse.org/releases/neon/201606221000</repo-url>
   </properties>
 
   <modules>
@@ -22,7 +23,13 @@
     <!-- Repositório padrão do mars -->
     <repository>
       <id>eclipse-mars</id>
-      <url>http://download.eclipse.org/releases/neon/201606221000</url>
+      <!-- <url>http://download.eclipse.org/releases/neon/201606221000</url> -->
+      <url>http://download.eclipse.org/releases/mars</url>
+      <layout>p2</layout>
+    </repository>
+    <repository>
+      <id>eclipse-neon</id>
+      <url>${repo-url}</url>
       <layout>p2</layout>
     </repository>
   </repositories>
@@ -47,18 +54,18 @@
             <environment>
               <os>win32</os>
               <ws>win32</ws>
-              <arch>x86</arch>
+              <arch>x86_64</arch>
             </environment>
             <environment>
               <os>linux</os>
               <ws>gtk</ws>
               <arch>x86_64</arch>
             </environment>
-            <environment>
+            <!-- <environment>
               <os>macosx</os>
               <ws>cocoa</ws>
               <arch>x86_64</arch>
-            </environment>
+            </environment> -->
           </environments>
         </configuration>
       </plugin>
