@@ -21,12 +21,11 @@
 
   <repositories>
     <!-- Repositório padrão do mars -->
-    <repository>
+    <!-- <repository>
       <id>eclipse-mars</id>
-      <!-- <url>http://download.eclipse.org/releases/neon/201606221000</url> -->
       <url>http://download.eclipse.org/releases/mars</url>
       <layout>p2</layout>
-    </repository>
+    </repository> -->
     <repository>
       <id>eclipse-neon</id>
       <url>${repo-url}</url>
@@ -44,7 +43,7 @@
       </plugin>
 
       <!-- http://wiki.eclipse.org/Tycho/Reference_Card#Examplary_parent_POM -->
-      
+
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>target-platform-configuration</artifactId>

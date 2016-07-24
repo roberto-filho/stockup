@@ -15,8 +15,23 @@
 
    <windowImages/>
 
+
+   <launcher name="stockup">
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+   </plugins>
+
    <features>
       <feature id="org.eclipse.e4.rcp"/>
+      <feature id="org.filho.stockup.feature"/>
    </features>
 
 
