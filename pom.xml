@@ -6,8 +6,16 @@
   <artifactId>stockup</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
+
+  <properties>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	<tycho-version>0.25.0</tycho-version>
+  </properties>
+
   <modules>
     <module>org.filho.stockup</module>
+    <module>org.filho.stockup.feature</module>
+    <module>org.filho.stockup.product</module>
   </modules>
 
   <repositories>
@@ -24,9 +32,38 @@
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-maven-plugin</artifactId>
-        <version>0.25.0</version>
+        <version>${tycho-version}</version>
         <extensions>true</extensions>
       </plugin>
+
+      <!-- http://wiki.eclipse.org/Tycho/Reference_Card#Examplary_parent_POM -->
+      
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <environments>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>x86_64</arch>
+            </environment>
+          </environments>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
+
 </project>

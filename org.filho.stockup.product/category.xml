@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.filho.stockup.feature_1.0.0.qualifier.jar" id="org.filho.stockup.feature" version="1.0.0.qualifier">
+      <category name="org.filho.stockup"/>
+   </feature>
+   <category-def name="org.filho.stockup" label="Stockup App"/>
+</site>
