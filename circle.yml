@@ -1,0 +1,33 @@
+machine:
+  java:
+    version: oraclejdk7
+    #version: oraclejdk6 # Não funciona, o tycho precisa da jdk7
+
+  # post:
+  #   - sudo apt-get update
+  #   - sudo apt-get install libswt-gtk-3-jni
+#  environment:
+#    M2_HOME: /usr/share/maven3
+
+
+## Customize dependencies
+dependencies:
+  override:
+    # Adicionei esse comando pro circle fazer cache das dependencias
+    - mvn integration-test -DskipTests=true
+    #- mvn package -pl br.com.germantech.target -pl br.com.germantech.fiscal.dbupdater -am
+# database:
+#   pre:
+#     - tar -xvf resources/base-zerada-2.12.6.tar.gz #untar a base
+    # Não cria mais as roles, não usamos
+#    - psql -h localhost -U ubuntu circle_test < resources/create-roles.sql # Cria as roles
+  # override:
+  #   - psql -h localhost -U ubuntu circle_test < base-zerada.sql #rodar a base
+  # post:
+  #   - psql -h localhost -U ubuntu circle_test < resources/fix-sequences.sql # Arruma a sequence da tabelasped
+test:
+  override:
+    - mvn integration-test -Dtycho.testArgLine="-Drandom.property=true"
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
