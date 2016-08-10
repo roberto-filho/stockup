@@ -1,6 +1,6 @@
 machine:
   java:
-    version: oraclejdk7
+    version: oraclejdk8
     #version: oraclejdk6 # Não funciona, o tycho precisa da jdk7
 
   # post:
