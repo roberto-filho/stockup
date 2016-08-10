@@ -12,6 +12,8 @@ machine:
 
 ## Customize dependencies
 dependencies:
+  pre:
+    - mvn -v
   override:
     # Adicionei esse comando pro circle fazer cache das dependencias
     - mvn integration-test -DskipTests=true
